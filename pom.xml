@@ -24,19 +24,19 @@
         <dependency>
             <groupId>io.skymind</groupId>
             <artifactId>skil-predict-client</artifactId>
-            <version>1.0.1-RC1</version>
+            <version>1.0.1</version>
         </dependency>
 
         <dependency>
             <groupId>io.skymind</groupId>
             <artifactId>skil-auth-client</artifactId>
-            <version>1.0.1-RC1</version>
+            <version>1.0.1</version>
         </dependency>
 
         <dependency>
             <groupId>org.nd4j</groupId>
             <artifactId>nd4j-native</artifactId>
-            <version>0.9.1</version>
+            <version>0.9.2_skil-1.0.0</version>
         </dependency>
 
         <dependency>
