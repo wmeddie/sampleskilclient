@@ -20,7 +20,7 @@ public class TestMnist {
 
         //ModelHistoryClient mhClient = new ModelHistoryClient("http://127.0.0.1:9100");
 
-        String basePath = "http://localhost:9008/endpoints/demo/model/sample-mnist-model/default";
+        String basePath = "http://localhost:9008/endpoints/demo/model/imsenet/default";
         //String basePath = "http://127.0.0.1:9008/endpoints/demo/model/mnist/default";
         //String basePath = "http://localhost:9008/endpoints/demo/model/sample-mnist-model/default";
         //String basePath = "http://localhost:9008/endpoints/demo/model/tfmodel/default";
@@ -30,14 +30,19 @@ public class TestMnist {
         PredictServiceClient client = new PredictServiceClient(basePath);
         client.setAuthToken(authToken);
 
-        //INDArray black = Nd4j.zeros(1, 299, 299, 3);
-        INDArray eye = Nd4j.eye(28).reshape(1, 28 * 28);
+        INDArray eye = Nd4j.zeros(1, 299, 299, 3);
+        //INDArray eye = Nd4j.eye(28).reshape(1, 28 * 28);
         Prediction input = new Prediction(eye, "eye");
 
-        ClassificationResult result = client.classify(input);
+        for (int i = 0; i < 100; i++) {
+            long start = System.currentTimeMillis();
+            Prediction result = client.predictArray(input);
+            long end = System.currentTimeMillis();
 
-        System.out.println(result);
-
+            System.out.println(result);
+            System.out.println("Took " + (end - start) + " ms");
+        }
+        /*
         MnistDataSetIterator data = new MnistDataSetIterator(1, 100);
 
         while (data.hasNext()) {
@@ -54,6 +59,6 @@ public class TestMnist {
                     " Predicted: " + pred +
                     " Match: " + ((truth == pred) ? "true" : "false")
             );
-        }
+        }*/
     }
 }
