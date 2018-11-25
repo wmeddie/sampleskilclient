@@ -1,5 +1,5 @@
-import com.mashape.unirest.http.Unirest;
-import io.skymind.auth.AuthClient;
+/*import com.mashape.unirest.http.Unirest;
+import io.skymind.skil.daemon.client.SKILDaemonClient;
 import io.skymind.skil.predict.client.PredictServiceClient;
 import io.skymind.skil.service.model.ClassificationResult;
 import io.skymind.skil.service.model.Prediction;
@@ -17,8 +17,8 @@ import java.util.stream.Collectors;
 
 public class TestSalesforce {
     public static void main(String... args) throws Exception {
-        AuthClient authClient = new AuthClient("http://127.0.0.1:9008");
-        authClient.login("admin", "admin");
+        SKILDaemonClient authClient = new SKILDaemonClient("http://127.0.0.1:9008");
+        authClient.login("admin", "admin123");
         String authToken = authClient.getAuthToken();
 
         //ModelHistoryClient mhClient = new ModelHistoryClient("http://127.0.0.1:9100");
@@ -47,4 +47,8 @@ public class TestSalesforce {
 
         System.out.println(result);
     }
+}
+**/
+
+public class TestSalesforce {
 }
